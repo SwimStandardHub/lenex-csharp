@@ -1,0 +1,59 @@
+assembly-versioning-scheme: MajorMinorPatch
+assembly-file-versioning-scheme: MajorMinorPatch
+assembly-versioning-format: '{AssemblyFileSemVer}'
+assembly-file-versioning-format: '{AssemblyFileSemVer}'
+assembly-informational-format: '{LegacySemVer}'
+mode: Mainline
+major-version-bump-message: '\+semver:\s?(breaking|major)'
+minor-version-bump-message: '\+semver:\s?(feature|minor)'
+patch-version-bump-message: '\+semver:\s?(fix|patch)'
+no-bump-message: '\+semver:\s?(none|skip)'
+commit-message-incrementing: Enabled
+legacy-semver-padding: 4
+build-metadata-padding: 4
+tag-prefix: '[vV]'
+branches:
+  main:
+    regex: ^master$|^main$
+    tag: ''
+    increment: Patch
+    source-branches: [ 'develop', 'release', 'hotfix' ]
+    track-merge-target: false
+    tracks-release-branches: false
+    is-release-branch: false
+    is-mainline: true
+    pre-release-weight: 55000
+    prevent-increment-of-merged-branch-version: true
+  develop:
+    regex: ^dev(elop)?(ment)?$
+    tag: beta
+    increment: Patch
+    source-branches: [ 'feature', 'hotfix' ]
+    prevent-increment-of-merged-branch-version: false
+    is-release-branch: false
+    is-mainline: false
+    pre-release-weight: 0
+  release:
+    regex: ^release?[/-]
+    tag: rc
+    increment: Inherit
+    is-release-branch: true
+    is-mainline: true
+    pre-release-weight: 30000
+  feature:
+    regex: ^feature(s)?[/-]
+    tag: useBranchName
+    prevent-increment-of-merged-branch-version: false
+    is-release-branch: false
+    is-mainline: false
+    pre-release-weight: 0
+  hotfix:
+    regex: ^hotfix(es)?[/-]|^bugfix(es)?[/-]
+    tag: useBranchName
+    prevent-increment-of-merged-branch-version: false
+    is-release-branch: false
+    is-mainline: false
+    pre-release-weight: 0
+ignore:
+  sha: []
+merge-message-formats: {}
