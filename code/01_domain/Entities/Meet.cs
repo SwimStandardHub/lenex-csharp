@@ -226,6 +226,16 @@ namespace Lenex.Domain.Entities
         public string? ResultUrl;
 
         /// <summary>
+        /// 1 start rule or 2 start rule.
+        /// </summary>
+        [XmlAttribute(AttributeName = "startmethod")]
+        public EmStartmethod Startmethode = 0;
+        /// <remarks></remarks>
+        [XmlIgnore]
+        public bool StartmethodeSpecified { get => Startmethode != EmStartmethod.OneStartRule; }
+
+
+        /// <summary>
         /// The date to be used to calculate the age of athletes. The default value is the date of the first session and type by year of birth only.
         /// </summary>
         [XmlElement(ElementName = "AGEDATE")]
