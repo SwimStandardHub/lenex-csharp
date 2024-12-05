@@ -29,6 +29,7 @@ namespace Lenex.Domain.Entities
         /// <summary>
         /// Tag object for markings in user implementation.
         /// </summary>
+        /// <exclude/>
         [XmlIgnore]
         public object? TagKey;
 

@@ -21,7 +21,7 @@ namespace Lenex.Domain.Entities
         /// </summary>
         [XmlAttribute(AttributeName = "agegroupid")]
         public int AgegroupId = 0;
-        /// <remarks></remarks>
+        /// <exclude/>
         [XmlIgnore]
         public bool AgegroupIdSpecified { get => AgegroupId > 0; }
 
@@ -30,7 +30,7 @@ namespace Lenex.Domain.Entities
         /// </summary>
         [XmlAttribute(AttributeName = "entrycourse")]
         public EmCours EntryCourse = EmCours.None;
-        /// <remarks></remarks>
+        /// <exclude/>
         [XmlIgnore]
         public bool EntryCourseSpecified { get => EntryCourse != EmCours.None; }
 
@@ -39,7 +39,7 @@ namespace Lenex.Domain.Entities
         /// </summary>
         [XmlAttribute(AttributeName = "entrydistance")]
         public int EntryDistance = 0;
-        /// <remarks></remarks>
+        /// <exclude/>
         [XmlIgnore]
         public bool EntryDistanceSpecified { get => EntryDistance > 0; }
 
@@ -60,7 +60,7 @@ namespace Lenex.Domain.Entities
         /// </summary>
         [XmlAttribute(AttributeName = "heatid")]
         public int HeatId = 0;
-        /// <remarks></remarks>
+        /// <exclude/>
         [XmlIgnore]
         public bool HeatIdSpecified { get => HeatId > 0; }
 
@@ -70,7 +70,7 @@ namespace Lenex.Domain.Entities
         [XmlAttribute(AttributeName = "heat")]
         [Obsolete("This property is obsolete and will be removed in a " + "future version. Use the attribut heatid instead.", true)]
         public int Heat = -1;
-        /// <remarks></remarks>
+        /// <exclude/>
         [XmlIgnore]
         [Obsolete("This property is obsolete and will be removed in a future version.")]
         public bool HeatSpecified { get => Heat > -1; }
@@ -80,7 +80,7 @@ namespace Lenex.Domain.Entities
         /// </summary>
         [XmlAttribute(AttributeName = "lane")]
         public int Lane = -1;
-        /// <remarks></remarks>
+        /// <exclude/>
         [XmlIgnore]
         public bool LaneSpecified { get => Lane > -1 && HeatId > 0; }
 
@@ -101,13 +101,14 @@ namespace Lenex.Domain.Entities
         /// </summary>
         [XmlAttribute(AttributeName = "status")]
         public EmEntryStatus Status = EmEntryStatus.Normal;
-        /// <remarks></remarks>
+        /// <exclude/>
         [XmlIgnore]
         public bool StatusSpecified { get => Status != EmEntryStatus.Normal; }
 
         /// <summary>
         /// Tag object for markings in user implementation.
         /// </summary>
+        /// <exclude/>
         [XmlIgnore]
         public object? TagKey;
     }
